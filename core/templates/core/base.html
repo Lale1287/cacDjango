@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}{% endblock %}</title>    
+    </head>  
+    <body>
+        <!--Menú de navegación. url apunta al nombre que figura en urls.py-->
+        <ul>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'una-pagina' %}">Una Página</a></li>
+            <li><a href="{% url 'otra-pagina' %}">Otra Página</a></li>
+        </ul>
+        <!--En cada template se inserta su propio contenido-->
+        {% block content %}{% endblock %}
+    </body>
+</html>
