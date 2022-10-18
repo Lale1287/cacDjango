@@ -2,17 +2,47 @@
 <html lang="es">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{% block title %}{% endblock %}</title>    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>{% block title %}{% endblock %}</title>
+        <!--Styles, js, fuentes externas. Contenido estático-->
+        {% load static %}
+        <link href="{% static 'core/css/base.css' %}" rel="stylesheet">
+        <!--Los estáticos a links externos mantienen el formato html-->
+        <link href="http://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap" rel="stylesheet">   
     </head>  
     <body>
         <!--Menú de navegación. url apunta al nombre que figura en urls.py-->
-        <ul>
-            <li><a href="{% url 'index' %}">Inicio</a></li>
-            <li><a href="{% url 'una-pagina' %}">Una Página</a></li>
-            <li><a href="{% url 'otra-pagina' %}">Otra Página</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li class="nav-item">
+                    <a href="{% url 'index' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'una-pagina' %}">Una Página</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'otra-pagina' %}">Otra Página</a>
+                </li>
+            </ul>
+        </nav>
+        <!--Encabezado de la página-->
+        <header>
+            {% block background %}{% endblock %}
+
+
+
+            {% load static %}
+            <img src="{% static 'core/img/code.jpg' %}" alt="binarioHeader">
+        </header>
+        <main>
         <!--En cada template se inserta su propio contenido-->
+        
         {% block content %}{% endblock %}
+        
+        </main>
+        <!--Pie de página-->
+        <footer>
+
+        </footer>
     </body>
 </html>
